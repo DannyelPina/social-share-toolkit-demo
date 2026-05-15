@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { SocialShareBox, SocialShareButton } from "social-share-toolkit/react";
 
+import type { NetworkKey } from "social-share-toolkit";
+
 import "./App.css";
 
 const ALL_NETS = [
@@ -123,7 +125,7 @@ function NetBadge({ net, delay }) {
 			},
 			{ threshold: 0.1 },
 		);
-		obs.observe(ref.current);
+		obs.observe(ref.current as any);
 		return () => obs.disconnect();
 	}, []);
 	return (
@@ -336,10 +338,10 @@ export default function App() {
 						{selected.length > 0 ? (
 							<SocialShareBox
 								link={url}
-								socials={selected}
+								socials={selected as NetworkKey[]}
 								text={text}
 								showLabel={showLabel}
-								direction={direction}
+								direction={direction as "row" | "column"}
 								gap="8px"
 							/>
 						) : (
