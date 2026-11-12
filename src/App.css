@@ -106,11 +106,45 @@ code {
 	color: var(--muted);
 }
 
-.top-links {
+.top-right {
 	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.top-links {
 	display: flex;
 	gap: 20px;
 	font-size: 14px;
+}
+
+/* React / Vue switch */
+.fw-switch {
+	display: inline-flex;
+	border: 1px solid var(--rule-strong);
+}
+
+.fw-switch button {
+	font: 500 13px var(--sans);
+	color: var(--ink-2);
+	background: none;
+	border: 0;
+	padding: 3px 12px;
+	cursor: pointer;
+}
+
+.fw-switch button + button {
+	border-left: 1px solid var(--rule-strong);
+}
+
+.fw-switch button[aria-pressed="true"] {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.fw-switch button[aria-pressed="false"]:hover {
+	color: var(--ink);
 }
 
 .top-links a {
@@ -211,6 +245,10 @@ h1 {
 	margin-bottom: 10px;
 }
 
+.toc-head-gap {
+	margin-top: 28px;
+}
+
 .toc ol {
 	list-style: none;
 	counter-reset: toc;
@@ -269,6 +307,51 @@ h1 {
 	color: var(--ink-2);
 	max-width: 62ch;
 	margin-bottom: 28px;
+}
+
+.sub {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 36px 0 12px;
+}
+
+.note {
+	font-size: 14px;
+	color: var(--ink-2);
+	border-left: 2px solid var(--rule-strong);
+	padding: 2px 0 2px 12px;
+	margin-bottom: 28px;
+}
+
+/* ---------- setup ---------- */
+
+.setup {
+	display: grid;
+	gap: 20px;
+}
+
+.setup-caption {
+	font-size: 14px;
+	color: var(--ink-2);
+	margin-bottom: 8px;
+}
+
+.diff .diff-what {
+	color: var(--ink-2);
+	white-space: normal;
+	width: 28%;
+}
+
+.diff th.active {
+	color: var(--ink);
+}
+
+.diff td:not(.active):not(.diff-what) {
+	color: var(--muted);
+}
+
+.diff td:not(.active):not(.diff-what) code {
+	opacity: 0.75;
 }
 
 /* ---------- playground ---------- */
@@ -524,6 +607,10 @@ legend {
 	margin-bottom: 28px;
 }
 
+.section > .code + .note {
+	margin-top: -12px;
+}
+
 /* ---------- reference tables ---------- */
 
 .table-wrap {
@@ -704,6 +791,21 @@ legend {
 
 	.install code {
 		font-size: 13px;
+	}
+
+	.top {
+		flex-wrap: wrap;
+		row-gap: 12px;
+	}
+
+	.top-right {
+		gap: 16px;
+	}
+
+	.diff .diff-what {
+		width: auto;
+		font-weight: 500;
+		color: var(--ink);
 	}
 
 	/* Reference tables become stacked rows: name, then type/default, then description */
